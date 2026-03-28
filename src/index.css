@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 91%;
+    --foreground: 220 20% 20%;
+
+    --card: 220 20% 91%;
+    --card-foreground: 220 20% 20%;
+
+    --popover: 220 20% 93%;
+    --popover-foreground: 220 20% 20%;
+
+    --primary: 220 20% 25%;
+    --primary-foreground: 220 20% 95%;
+
+    --secondary: 220 18% 88%;
+    --secondary-foreground: 220 20% 30%;
+
+    --muted: 220 15% 88%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 220 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 85%;
+    --input: 220 15% 85%;
+    --ring: 220 70% 55%;
+
+    --radius: 1rem;
+
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Neumorphic shadows */
+    --shadow-neu-out: 6px 6px 12px hsl(220 20% 82%), -6px -6px 12px hsl(220 20% 98%);
+    --shadow-neu-out-sm: 3px 3px 6px hsl(220 20% 82%), -3px -3px 6px hsl(220 20% 98%);
+    --shadow-neu-in: inset 3px 3px 6px hsl(220 20% 82%), inset -3px -3px 6px hsl(220 20% 98%);
+    --shadow-neu-in-lg: inset 4px 4px 8px hsl(220 20% 82%), inset -4px -4px 8px hsl(220 20% 98%);
+
+    --sidebar-background: 220 20% 91%;
+    --sidebar-foreground: 220 20% 20%;
+    --sidebar-primary: 220 20% 25%;
+    --sidebar-primary-foreground: 220 20% 95%;
+    --sidebar-accent: 220 18% 88%;
+    --sidebar-accent-foreground: 220 20% 25%;
+    --sidebar-border: 220 15% 85%;
+    --sidebar-ring: 220 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .neu-flat {
+    box-shadow: var(--shadow-neu-out);
+  }
+  .neu-flat-sm {
+    box-shadow: var(--shadow-neu-out-sm);
+  }
+  .neu-pressed {
+    box-shadow: var(--shadow-neu-in);
+  }
+  .neu-pressed-lg {
+    box-shadow: var(--shadow-neu-in-lg);
+  }
+}
