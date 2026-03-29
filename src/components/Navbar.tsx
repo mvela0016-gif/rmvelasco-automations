@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="font-display text-xl font-semibold text-foreground tracking-tight">
           Ray Velasco
@@ -33,7 +33,7 @@ const Navbar = () => {
         </button>
       </div>
       {open && (
-        <div className="md:hidden bg-background px-6 py-4 flex flex-col gap-2">
+        <div className="md:hidden glass-strong px-6 py-4 flex flex-col gap-2">
           {navItems.map((item) => (
             <button
               key={item}
