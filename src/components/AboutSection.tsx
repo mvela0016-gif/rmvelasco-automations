@@ -26,13 +26,13 @@ const AboutSection = () => (
         className="neu-flat rounded-2xl p-8 space-y-5 text-muted-foreground font-body font-light leading-relaxed"
       >
         <p>
-          I've worked in customer service for almost 7 years, providing chat, email, and phone support while helping customers resolve issues and navigate products and services. This experience helped me develop strong communication, problem-solving, and technical troubleshooting skills. providing chat, email, and phone support while helping customers resolve issues and navigate products and services. This experience helped me develop strong communication, problem-solving, and technical troubleshooting skills.
+          I have a strong background in problem-solving and technical support, with experience handling chat, email, and phone-based systems. I now focus on building automation workflows using tools like Zapier, Make.com, and GoHighLevel to streamline processes, connect apps, and reduce repetitive tasks.
         </p>
         <p>
-          I am now transitioning into a Technical Virtual Assistant and Automation Specialist. I build automation workflows using tools like Zapier, Make.com, and GoHighLevel to help businesses streamline processes, connect apps, and reduce repetitive tasks. I can also build funnels, landing pages, lead capture systems, appointment scheduling, reminder emails, pipelines/opportunities, and multi-step automations.
+          I can create multi-step automations, lead capture systems, funnels, and landing pages, as well as set up calendars, appointment scheduling, pipelines, and automated email/SMS follow-ups. I also handle general virtual assistant tasks such as data entry, Google Docs and Sheets management, calendar scheduling, online research, and basic design work using Canva.
         </p>
         <p>
-          In addition to automation, I handle general virtual assistant tasks such as data entry, Google Docs and Sheets management, calendar scheduling, online research, and basic design work using Canva. I'm very tech-savvy and a fast learner In addition to automation, I handle general virtual assistant tasks such as data entry, Google Docs and Sheets management, calendar scheduling, online research, and basic design work using Canva. I'm very tech-savvy and a fast learner with over 15 years of experience working with computers. I enjoy finding ways to improve workflows and make processes more efficient. working with computers. I enjoy finding ways to improve workflows and make processes more efficient.
+          I’m tech-savvy, a fast learner, and comfortable working with new tools to improve workflows and increase efficiency.
         </p>
       </motion.div>
       <motion.div
