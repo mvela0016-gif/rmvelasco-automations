@@ -304,12 +304,12 @@ const PortfolioSection = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="relative max-w-5xl w-full bg-background rounded-3xl max-h-[90vh] neu-flat grid grid-cols-1 md:grid-cols-2 overflow-y-auto md:overflow-hidden"
+              className="relative max-w-5xl w-full bg-card rounded-3xl max-h-[90vh] border border-border shadow-2xl grid grid-cols-1 md:grid-cols-2 overflow-y-auto md:overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelected(null)}
-                className="absolute top-3 right-3 z-10 p-2 rounded-full neu-flat-sm text-foreground hover:text-accent transition-colors"
+                className="absolute top-3 right-3 z-10 p-2 rounded-full bg-secondary text-foreground hover:text-accent transition-colors"
               >
                 <X size={20} />
               </button>
@@ -325,15 +325,15 @@ const PortfolioSection = () => {
                 <h3 className="font-display font-bold text-foreground text-xl mt-1">{selected.title}</h3>
                 {selected.problem ? (
                   <div className="mt-3 space-y-3 text-sm font-body">
-                    <div className="neu-pressed rounded-xl p-3">
+                    <div className="bg-secondary rounded-xl p-3">
                       <span className="font-semibold text-foreground">Problem: </span>
                       <span className="text-muted-foreground font-light">{selected.problem}</span>
                     </div>
-                    <div className="neu-pressed rounded-xl p-3">
+                    <div className="bg-secondary rounded-xl p-3">
                       <span className="font-semibold text-foreground">Impact: </span>
                       <span className="text-muted-foreground font-light">{selected.impact}</span>
                     </div>
-                    <div className="neu-pressed rounded-xl p-3">
+                    <div className="bg-secondary rounded-xl p-3">
                       <span className="font-semibold text-foreground">Automation Opportunity: </span>
                       <span className="text-muted-foreground font-light">{selected.opportunity}</span>
                     </div>
@@ -350,7 +350,7 @@ const PortfolioSection = () => {
                     <ol className="space-y-3">
                       {selected.steps.map((step, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-sm font-body">
-                          <span className="flex-shrink-0 w-7 h-7 rounded-xl neu-flat-sm flex items-center justify-center text-xs font-bold text-accent">
+                          <span className="flex-shrink-0 w-7 h-7 rounded-xl bg-secondary flex items-center justify-center text-xs font-bold text-accent">
                             {idx + 1}
                           </span>
                           <span className="text-muted-foreground font-light pt-1">{step}</span>
