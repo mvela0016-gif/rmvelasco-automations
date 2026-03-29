@@ -17,7 +17,7 @@ const Navbar = () => {
         <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="font-display text-xl font-semibold text-foreground tracking-tight">
           Ray Velasco
         </button>
-        <div className="hidden md:flex gap-2">
+        <div className="hidden md:flex items-center gap-2">
           {navItems.map((item) => (
             <button
               key={item}
@@ -27,6 +27,12 @@ const Navbar = () => {
               {item}
             </button>
           ))}
+          <a
+            href="mailto:mvela0016@gmail.com?subject=Automation%20Request&body=Hi%20Ray%2C%0A%0AI%27d%20like%20a%20sample%20automation%20workflow%20for%3A%0A%0A"
+            className="ml-2 px-4 py-2 rounded-xl text-sm font-body font-semibold bg-accent text-accent-foreground glass-sm hover:translate-y-0.5 transition-all duration-200"
+          >
+            Get a Free Sample
+          </a>
         </div>
         <button className="md:hidden p-2 rounded-xl neu-flat-sm text-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={20} /> : <Menu size={20} />}
