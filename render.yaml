@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: your-app-name
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    branch: main
+    envVars:
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
