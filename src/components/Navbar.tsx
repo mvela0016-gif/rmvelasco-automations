@@ -49,6 +49,12 @@ const Navbar = () => {
               {item}
             </button>
           ))}
+          <a
+            href="mailto:mvela0016@gmail.com?subject=Automation%20Request&body=Hi%20Ray%2C%0A%0AI%27d%20like%20a%20sample%20automation%20workflow%20for%3A%0A%0A"
+            className="mt-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-accent text-accent-foreground glass-sm text-center"
+          >
+            Get a Free Sample
+          </a>
         </div>
       )}
     </nav>
