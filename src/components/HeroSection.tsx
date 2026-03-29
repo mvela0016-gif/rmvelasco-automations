@@ -40,7 +40,7 @@ const HeroSection = () => (
         transition={{ duration: 0.6, delay: 0.2 }}
         className="text-xl md:text-2xl font-display font-medium text-muted-foreground mb-4"
       >
-        Streamlining Business Through Automation
+        Automate Your Business and Save Hours Every Week
       </motion.p>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ const HeroSection = () => (
         transition={{ duration: 0.6, delay: 0.3 }}
         className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto font-body font-light leading-relaxed"
       >
-        Building workflows with Zapier, Make.com & GoHighLevel to help businesses save time and scale smarter.
+        I build custom workflows using Zapier, Make.com, and GoHighLevel to eliminate repetitive tasks, streamline operations, and help you scale efficiently.
       </motion.p>
       <motion.div
         initial={{ opacity: 0 }}
