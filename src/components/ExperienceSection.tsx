@@ -5,7 +5,15 @@ const experiences = [
     title: "Customer Service | Technical Support Representative",
     company: "Concentrix, HGS, and TTEC (Current)",
     period: "2018 - Present",
-    description: "Provided chat, email, and phone support. Helped customers resolve issues and navigate products and services. Developed strong communication, problem-solving, and technical troubleshooting skills.",
+    description: [
+      "Provided chat and email support for shipping issues, damaged packages, and delivery delays",
+      "Issued appropriate resolutions including replacements, credits, and refunds",
+      "Assisted with basic troubleshooting, website navigation, and subscription inquiries",
+      "Offered personalized product recommendations based on customer needs",
+      "Assisted in training new hires and acted as a Support/SME for teammates",
+      "Served as Point of Contact (POC) during leadership absences",
+      "Maintained accurate records while delivering timely, empathetic support"
+    ],
   },
   {
     title: "Technical Virtual Assistant & Automation Specialist",
@@ -40,7 +48,15 @@ const ExperienceSection = () => (
             <p className="text-xs font-body text-muted-foreground mb-1">{exp.period}</p>
             <h3 className="text-lg font-display font-semibold text-foreground">{exp.title}</h3>
             <p className="text-sm font-body text-accent mb-2">{exp.company}</p>
-            <p className="text-sm font-body text-muted-foreground leading-relaxed">{exp.description}</p>
+            {Array.isArray(exp.description) ? (
+              <ul className="list-disc list-outside ml-4 space-y-2 text-sm font-body text-muted-foreground leading-relaxed">
+                {exp.description.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm font-body text-muted-foreground leading-relaxed">{exp.description}</p>
+            )}
           </motion.div>
         ))}
       </div>
