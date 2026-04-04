@@ -22,19 +22,19 @@ const Navbar = () => {
             <button
               key={item}
               onClick={() => scrollTo(item)}
-              className="px-4 py-2 rounded-xl text-sm font-body font-medium text-muted-foreground hover:text-foreground hover:neu-flat-sm transition-all duration-200"
+              className="px-4 py-2 rounded-xl text-sm font-body font-medium text-muted-foreground hover:text-foreground hover:glass-sm transition-all duration-200"
             >
               {item}
             </button>
           ))}
           <a
             href="mailto:mvela0016@gmail.com?subject=Automation%20Request&body=Hi%20Ray%2C%0A%0AI%27d%20like%20a%20sample%20automation%20workflow%20for%3A%0A%0A"
-            className="ml-2 px-4 py-2 rounded-xl text-sm font-body font-semibold bg-accent text-accent-foreground glass-sm hover:translate-y-0.5 transition-all duration-200"
+            className="ml-2 px-4 py-2 rounded-xl text-sm font-body font-semibold bg-accent text-accent-foreground hover:translate-y-0.5 transition-all duration-200"
           >
             Get a Free Sample
           </a>
         </div>
-        <button className="md:hidden p-2 rounded-xl neu-flat-sm text-foreground" onClick={() => setOpen(!open)}>
+        <button aria-label="Toggle Menu" aria-expanded={open} className="md:hidden p-2 rounded-xl glass-sm text-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
@@ -44,14 +44,14 @@ const Navbar = () => {
             <button
               key={item}
               onClick={() => scrollTo(item)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left px-4 py-2 rounded-xl hover:neu-flat-sm"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left px-4 py-2 rounded-xl hover:glass-sm"
             >
               {item}
             </button>
           ))}
           <a
             href="mailto:mvela0016@gmail.com?subject=Automation%20Request&body=Hi%20Ray%2C%0A%0AI%27d%20like%20a%20sample%20automation%20workflow%20for%3A%0A%0A"
-            className="mt-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-accent text-accent-foreground glass-sm text-center"
+            className="mt-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-accent text-accent-foreground text-center"
           >
             Get a Free Sample
           </a>

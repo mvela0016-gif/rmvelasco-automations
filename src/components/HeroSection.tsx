@@ -10,7 +10,7 @@ const HeroSection = () => (
         transition={{ duration: 0.6 }}
         className="mb-6"
       >
-        <div className="w-28 h-28 rounded-full mx-auto neu-flat p-1.5">
+        <div className="w-28 h-28 rounded-full mx-auto glass p-1.5">
           <img
             src={profilePicture}
             alt="Ray Velasco Profile"
@@ -40,7 +40,7 @@ const HeroSection = () => (
         transition={{ duration: 0.6, delay: 0.2 }}
         className="text-xl md:text-2xl font-display font-medium text-muted-foreground mb-4"
       >
-        Automate Your Business and Save Hours Every Week
+        Scaling Businesses by Reclaiming Time, Resources, and Revenue Through Intelligent Automation
       </motion.p>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ const HeroSection = () => (
         transition={{ duration: 0.6, delay: 0.3 }}
         className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto font-body font-light leading-relaxed"
       >
-        I build custom workflows using Zapier, Make.com, and GoHighLevel to eliminate repetitive tasks, streamline operations, and help you scale efficiently.
+        I engineer custom, robust automation systems using Zapier, Make.com, and GoHighLevel. Transform your manual bottlenecks into seamless workflows that drive growth and save your business countless hours and money.
       </motion.p>
       <motion.div
         initial={{ opacity: 0 }}
@@ -58,7 +58,7 @@ const HeroSection = () => (
       >
         <button
           onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-accent text-accent-foreground text-sm font-semibold neu-flat hover:translate-y-0.5 hover:shadow-none transition-all duration-200"
+          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-accent text-accent-foreground text-sm font-semibold hover:translate-y-0.5 hover:shadow-none transition-all duration-200"
         >
           View My Work
         </button>

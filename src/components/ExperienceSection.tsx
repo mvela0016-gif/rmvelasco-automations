@@ -35,7 +35,7 @@ const ExperienceSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="neu-flat rounded-2xl p-6"
+            className="glass rounded-2xl p-6"
           >
             <p className="text-xs font-body text-muted-foreground mb-1">{exp.period}</p>
             <h3 className="text-lg font-display font-semibold text-foreground">{exp.title}</h3>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import zapierDemo1 from "@/assets/zapier-demo-1.png";
@@ -139,15 +139,36 @@ const portfolioItems: PortfolioItem[] = [
   id: "m4",
   title: "Make Demo — Real Estate Agent or Property Management Team",
   description: "Problem:\nThe team lists rental properties and collects viewing requests through a Google Form. Each request includes the applicant's name, email, preferred viewing date, property interest, and monthly income. The property manager manually checks each submission, verifies if the requested date is available in a master Google Sheets calendar, confirms or suggests a new date, and sends a reply email. They manage eight active properties and receive 25–35 viewing requests per week.\n\nImpact:\nConfirming viewing dates takes nearly two hours per day. On weekends, requests pile up and applicants may assume the property is no longer available. Some move on to competing listings. The master sheet also becomes out of sync when confirmed appointments are not updated immediately.\n\nAutomation Opportunity:\nA Make.com scenario triggers when a Google Form is submitted and checks the master Google Sheet to see if the requested date is available. If the slot is available, the system confirms the appointment and updates the sheet. If the slot is taken, it sends the applicant a list of alternative dates.\n\nModules Used:\nGoogle Forms → Google Sheets (Search Row) → Router (2 paths) → (Slot Available) Google Sheets (Update Row) → Gmail → Slack | (Slot Taken) Google Sheets (Search Rows) → Text Aggregator → Gmail",
+  problem: "The team limits manual work by collecting property viewing requests via Google Forms, but managers still manually cross-reference dates with a master calendar and write individual email replies.",
+  impact: "Confirming dates takes hours per day. Weekend requests bottleneck, leading applicants to assume the property is unavailable and move on to competing listings.",
+  opportunity: "A Make.com scenario cross-references the master Google Sheet calendar automatically. If the date is available, it confirms the slot. If taken, it instantly compiles and emails the applicant alternative dates.",
   category: "Make",
   image: "/lovable-uploads/fdf8bebe-f4a3-4751-aea8-d63d3241c631.png",
+  steps: [
+    "Triggers when an applicant submits a property viewing request through Google Forms",
+    "Searches the master Google Sheets calendar to determine if the requested timeframe is available",
+    "A Router splits the automation path depending on the slot's availability",
+    "Path 1 (Available): Updates the calendar to block the time, sends a confirmation email to the applicant, and notifies the team in Slack",
+    "Path 2 (Taken): The system queries the calendar for the next open slots",
+    "A Text Aggregator formats those open dates and emails them to the applicant immediately to reschedule"
+  ]
 },
 {
   id: "m5",
   title: "Make Demo — Small Business Owner / Service Provider",
   description: "Problem:\nA local home cleaning business collects customer feedback through a Google Form after each job. The owner rarely reviews responses, leaving unhappy customers without follow-up and five-star customers without encouragement to refer friends.\n\nImpact:\nThe owner has no clear view of service quality. Repeated complaints go unaddressed, and opportunities for word-of-mouth referrals — the business's main growth channel — are missed.\n\nAutomation Opportunity:\nA Make.com scenario monitors new Google Form responses. Low ratings trigger an automatic apology and follow-up email, while high ratings trigger a thank-you email asking for a Google Review.\n\nModules Used:\nGoogle Forms → Router + Filter → Gmail → Slack",
+  problem: "A local home cleaning business collects customer feedback through a Google Form after each job. The owner rarely reviews responses, leaving unhappy customers without follow-up and five-star customers without encouragement to refer friends.",
+  impact: "The owner has no clear view of service quality. Repeated complaints go unaddressed, and opportunities for word-of-mouth referrals — the business's main growth channel — are missed.",
+  opportunity: "A Make.com scenario monitors new Google Form responses. Low ratings trigger an automatic apology and follow-up email, while high ratings trigger a thank-you email asking for a Google Review.",
   category: "Make",
   image: "/lovable-uploads/20e01f2a-4dfa-4bc6-a658-461604fc1e35.png",
+  steps: [
+    "Triggers when a customer submits the post-service feedback Google Form",
+    "A Router evaluates the star rating given by the customer",
+    "If the rating is low (1-3 stars), an automated apology email is immediately sent to the customer",
+    "A Slack alert is also instantly sent to the business owner to address the poor rating personally",
+    "If the rating is high (4-5 stars), an automated thank-you email is sent containing a direct link to leave a public Google Review"
+  ]
 },
 {
   id: "g1",
@@ -202,10 +223,20 @@ const portfolioItems: PortfolioItem[] = [
 },
 {
   id: "g4",
-  title: "GHL Demo — Email & SMS Campaign",
-  description: "Multi-channel drip campaign with segmentation and performance tracking.",
+  title: "GoHighLevel Demo — Intelligent AI Website Chatbot",
+  description: "Configure conversational AI agents for websites with custom databases, FAQs, and precise tone mapping.",
   category: "GoHighLevel",
-  image: "/placeholder.svg"
+  image: "/lovable-uploads/Screenshot 2026-04-01 024004.png",
+  problem: "Website visitors often have simple inquiries, but forcing them to wait for a human response or fill out a friction-heavy contact form leads to high bounce rates and lost leads.",
+  impact: "Prospects abandon the site when they can't get immediate answers. The sales team wastes hours manually answering basic, repetitive questions instead of closing deals.",
+  opportunity: "Deploy a custom GoHighLevel AI chatbot trained on the company's specific FAQs, pricing, and brand tone. It instantly engages visitors, sets appointments, and captures lead data 24/7.",
+  steps: [
+    "The AI chatbot is embedded directly onto the GoHighLevel website or landing page",
+    "It is comprehensively trained on a custom Knowledge Base containing FAQs, services, and policies",
+    "When a visitor interacts, the AI evaluates the context and replies accurately in the predefined brand voice",
+    "Once the visitor shows high intent, the bot prompts them to book a meeting or showing directly via chat",
+    "All captured contact info and full conversation history are instantly synced into the GoHighLevel CRM"
+  ]
 },
 {
   id: "g5",
@@ -220,6 +251,17 @@ const categories = ["All", "Zapier", "Make", "GoHighLevel"] as const;
 const PortfolioSection = () => {
   const [selected, setSelected] = useState<PortfolioItem | null>(null);
   const [filter, setFilter] = useState<"All" | "Zapier" | "Make" | "GoHighLevel">("All");
+
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selected]);
 
   const filtered = filter === "All" ? portfolioItems : portfolioItems.filter((i) => i.category === filter);
 
@@ -252,8 +294,8 @@ const PortfolioSection = () => {
               onClick={() => setFilter(cat)}
               className={`px-5 py-2 rounded-2xl text-sm font-body font-medium transition-all duration-200 ${
                 filter === cat
-                  ? "neu-pressed text-accent"
-                  : "neu-flat-sm text-secondary-foreground hover:translate-y-0.5 hover:shadow-none"
+                  ? "glass-strong text-accent"
+                  : "glass-sm text-secondary-foreground hover:translate-y-0.5 hover:shadow-none"
               }`}
             >
               {cat}
@@ -270,7 +312,7 @@ const PortfolioSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
               onClick={() => setSelected(item)}
-              className="group text-left rounded-2xl overflow-hidden neu-flat hover:translate-y-1 hover:shadow-none transition-all duration-200"
+              className="group text-left rounded-2xl overflow-hidden glass hover:translate-y-1 hover:shadow-none transition-all duration-200"
             >
               <div className="aspect-video bg-muted overflow-hidden rounded-t-2xl">
                 <img

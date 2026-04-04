@@ -31,7 +31,7 @@ const ContactSection = () => (
       >
         <a
           href="mailto:mvela0016@gmail.com"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-accent text-accent-foreground text-sm font-semibold neu-flat hover:translate-y-0.5 hover:shadow-none transition-all duration-200"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-accent text-accent-foreground text-sm font-semibold hover:translate-y-0.5 hover:shadow-none transition-all duration-200"
         >
           <Mail size={16} />
           Email Me
@@ -40,7 +40,7 @@ const ContactSection = () => (
           href="https://upwork.com/freelancers/~01db9faa2529bbd15c"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-foreground text-sm font-medium neu-flat hover:translate-y-0.5 hover:shadow-none transition-all duration-200"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-foreground text-sm font-medium glass hover:translate-y-0.5 hover:shadow-none transition-all duration-200"
         >
           <ExternalLink size={16} />
           Upwork Profile
@@ -49,7 +49,7 @@ const ContactSection = () => (
           href="https://www.onlinejobs.ph/jobseekers/info/4320189"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-foreground text-sm font-medium neu-flat hover:translate-y-0.5 hover:shadow-none transition-all duration-200"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-foreground text-sm font-medium glass hover:translate-y-0.5 hover:shadow-none transition-all duration-200"
         >
           <ExternalLink size={16} />
           OLJ Profile

@@ -23,16 +23,16 @@ const AboutSection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="neu-flat rounded-2xl p-8 space-y-5 text-muted-foreground font-body font-light leading-relaxed"
+        className="glass rounded-2xl p-8 space-y-5 text-muted-foreground font-body font-light leading-relaxed"
       >
         <p>
-          I have a strong background in problem-solving and technical support, with experience handling chat, email, and phone-based systems. I now focus on building automation workflows using tools like Zapier, Make.com, and GoHighLevel to streamline processes, connect apps, and reduce repetitive tasks.
+          My core mission is to help businesses regain control over their most valuable assets: time, resources, and money. I specialize in identifying operational bottlenecks and engineering robust automation systems that eliminate manual, repetitive work.
         </p>
         <p>
-          I can create multi-step automations, lead capture systems, funnels, and landing pages, as well as set up calendars, appointment scheduling, pipelines, and automated email/SMS follow-ups. I also handle general virtual assistant tasks such as data entry, Google Docs and Sheets management, calendar scheduling, online research, and basic design work using Canva.
+          Using advanced tools like Zapier, Make.com, and GoHighLevel, I architect seamless workflows that connect your favorite apps, nurture leads on autopilot, and streamline your entire pipeline from capture to conversion. Whether it's multi-step automations, highly-converting funnels, or intelligent appointment scheduling systems, I ensure your business runs smoothly behind the scenes.
         </p>
         <p>
-          I’m tech-savvy, a fast learner, and comfortable working with new tools to improve workflows and increase efficiency.
+          By removing human error and automating the mundane, I empower business owners to focus entirely on scaling, innovating, and driving consistent revenue growth. Let's transform your operations into a well-oiled, efficient machine.
         </p>
       </motion.div>
       <motion.div
@@ -43,7 +43,7 @@ const AboutSection = () => (
         className="mt-8 flex flex-wrap gap-3"
       >
         {skills.map((skill) => (
-          <span key={skill} className="px-4 py-2 text-xs font-body font-medium rounded-xl neu-flat-sm text-secondary-foreground">
+          <span key={skill} className="px-4 py-2 text-xs font-body font-medium rounded-xl glass-sm text-secondary-foreground">
             {skill}
           </span>
         ))}
