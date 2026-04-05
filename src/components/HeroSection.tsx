@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import profilePicture from "@/assets/profile-picture.jpg";
 
 const HeroSection = () => (
-  <section className="min-h-[70vh] flex items-center justify-center pt-16">
+  <section className="min-h-[70vh] flex items-center justify-center pt-28">
     <div className="max-w-3xl mx-auto px-6 text-center">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
