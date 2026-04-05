@@ -10,7 +10,7 @@ const HeroSection = () => (
         transition={{ duration: 0.6 }}
         className="mb-6"
       >
-        <div className="w-28 h-28 rounded-full mx-auto glass p-1.5">
+        <div className="w-44 h-44 rounded-full mx-auto glass p-1.5">
           <img
             src={profilePicture}
             alt="Ray Velasco Profile"
