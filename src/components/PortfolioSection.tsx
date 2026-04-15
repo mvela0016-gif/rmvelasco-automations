@@ -64,7 +64,7 @@ const portfolioItems: PortfolioItem[] = [
   title: "Zapier Demo — Support Ticket WISMO",
   description: "Problem: Customer support constantly answers \"Where is my order?\" emails. The support rep manually checks Shopify, copies tracking info, and replies one by one.\n\nTools Used: Zendesk, ChatGPT, Shopify, Path Conditions (Zapier), and Slack\n\nImpact:\nSupport inbox gets flooded, response times are slow, and staff spend hours daily answering the same question instead of handling real issues.\n\nAutomation Opportunity:\nAutomatically send shipping and delivery updates to customers and create instant self-serve tracking replies when order-related emails come in.",
   category: "Zapier",
-  image: "/lovable-uploads/e44aaf25-25d7-432a-8ec7-859c7bb5cae2.png",
+  image: "/lovable-uploads/e92cb32b-655e-462f-9307-2cd7551e5868.png",
   problem: "Customer support constantly answers \"Where is my order?\" emails. The support rep manually checks Shopify, copies tracking info, and replies one by one.",
   impact: "Support inbox gets flooded, response times are slow, and staff spend hours daily answering the same question instead of handling real issues.",
   opportunity: "Automatically send shipping and delivery updates to customers and create instant self-serve tracking replies when order-related emails come in.",
