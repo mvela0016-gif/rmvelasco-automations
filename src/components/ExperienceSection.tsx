@@ -2,23 +2,26 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    title: "Customer Service | Technical Support Representative",
-    company: "Concentrix, HGS, and TTEC (Current)",
-    period: "2018 - Present",
+    title: "Lead Associate | Customer Service",
+    company: "TTEC Philippines",
+    period: "",
     description: [
-      "Provided chat and email support for shipping issues, damaged packages, and delivery delays",
-      "Issued appropriate resolutions including replacements, credits, and refunds",
-      "Assisted with basic troubleshooting, website navigation, and subscription inquiries",
-      "Offered personalized product recommendations based on customer needs",
-      "Assisted in training new hires and acted as a Support/SME for teammates",
-      "Served as Point of Contact (POC) during leadership absences",
-      "Maintained accurate records while delivering timely, empathetic support"
+      "Managed escalations and complex cases, ensuring timely and effective resolution",
+      "Supported agents with policy, process, product, and quality-related inquiries through Teams, Slack, Zoom, and other communication platforms",
+      "Escalated food safety concerns and trending issues to clients for investigation and resolution",
+      "Conducted detractor scrubbing to identify key drivers of customer dissatisfaction (DSAT) and recommend service improvements",
+      "Provided agent feedback, process guidance, and recommendations to improve performance and address challenging situations",
+      "Shared client updates and helped keep the team aligned with changing policies and procedures",
+      "Assisted in training new hires and served as a Subject Matter Expert (SME) for teammates",
+      "Delivered chat and email support for shipping issues, damaged packages, delivery delays, and account-related inquiries",
+      "Processed refunds, replacements, and credits while maintaining accurate records and ensuring a positive customer experience",
+      "Assisted customers with website navigation and subscription-related concerns",
     ],
   },
   {
     title: "Technical Virtual Assistant & Automation Specialist",
     company: "Freelance",
-    period: "2026 - Present",
+    period: "",
     description: "Building automation workflows using Zapier, Make.com, and GoHighLevel. Creating funnels, landing pages, lead capture systems, and multi-step automations for businesses.",
   },
 ];

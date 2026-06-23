@@ -46,7 +46,7 @@ const TechMarquee = () => {
                   src={tool.icon}
                   alt={tool.name}
                   className="w-4 h-4 opacity-70"
-                  style={{ filter: "brightness(0) opacity(0.7)" }}
+                  style={{ filter: "brightness(0) invert(1) opacity(0.7)" }}
                 />
               )}
               <span className="text-sm font-semibold text-foreground/80 font-body tracking-wide">{tool.name}</span>
