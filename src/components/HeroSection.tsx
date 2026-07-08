@@ -24,7 +24,7 @@ const HeroSection = () => (
         transition={{ duration: 0.6 }}
         className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 font-body"
       >
-        ZAPIER | MAKE.COM | GOHIGHLEVEL SPECIALIST
+        ZAPIER | MAKE.COM | N8N | GOHIGHLEVEL SPECIALIST
       </motion.p>
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ const HeroSection = () => (
         transition={{ duration: 0.6, delay: 0.3 }}
         className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto font-body font-light leading-relaxed"
       >
-        I engineer custom, robust automation systems using Zapier, Make.com, and GoHighLevel. Transform your manual bottlenecks into seamless workflows that drive growth and save your business countless hours and money.
+        I engineer custom, robust automation systems using Zapier, Make.com, n8n, and GoHighLevel. Transform your manual bottlenecks into seamless workflows that drive growth and save your business countless hours and money.
       </motion.p>
       <motion.div
         initial={{ opacity: 0 }}

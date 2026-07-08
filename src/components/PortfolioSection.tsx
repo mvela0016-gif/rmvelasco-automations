@@ -9,7 +9,7 @@ export interface PortfolioItem {
   id: string;
   title: string;
   description: string;
-  category: "Zapier" | "Make" | "GoHighLevel";
+  category: "Zapier" | "Make" | "GoHighLevel" | "n8n";
   image: string;
   problem?: string;
   impact?: string;
@@ -244,13 +244,53 @@ const portfolioItems: PortfolioItem[] = [
   description: "Complex workflow with triggers, conditions, and multi-step actions across the platform.",
   category: "GoHighLevel",
   image: "/placeholder.svg"
+},
+{
+  id: "n1",
+  title: "n8n Demo — Social Media Posting Automation",
+  description: "Problem:\nManually creating and publishing social media content across multiple platforms is time-consuming. Each platform has different formatting requirements, character limits, and optimal posting strategies. Marketing teams spend hours adapting a single piece of content for Facebook, Instagram, LinkedIn, X, and Threads.\n\nImpact:\nInconsistent posting schedules, missed opportunities, and hours of repetitive work that could be spent on strategy and engagement.\n\nAutomation Opportunity:\nAutomate the entire content pipeline — from article summarization to AI-generated platform-specific posts — triggered by a single row in Google Sheets.\n\nTools Used: n8n, Groq AI, Cloudinary, Facebook Graph API, Google Sheets",
+  category: "n8n",
+  image: "/lovable-uploads/n8n_demo_1_socmed_automation.png",
+  problem: "Manually creating and publishing social media content across multiple platforms is time-consuming. Each platform has different formatting requirements, character limits, and optimal posting strategies.",
+  impact: "Inconsistent posting schedules, missed opportunities, and hours of repetitive work that could be spent on strategy and engagement.",
+  opportunity: "Automate the entire content pipeline — from article summarization to AI-generated platform-specific posts — triggered by a single row in Google Sheets.",
+  steps: [
+    "A new article row is added to Google Sheets with an article URL and image URL, triggering the workflow automatically",
+    "The workflow checks if an image URL exists using an IF node. If yes, it uploads the image to Cloudinary to get a reliable public URL",
+    "The article URL is sent to Groq AI which summarizes the article content",
+    "The summary is passed to a Basic LLM Chain which generates platform-specific posts for Facebook, Instagram, LinkedIn, X, and Threads and returns them as clean JSON",
+    "A Code node parses and validates the JSON output, enforcing character limits per platform",
+    "Posts are published simultaneously to all 5 platforms via their respective APIs",
+    "Results are logged back to Google Sheets with timestamp and status",
+    "If anything fails, an error notification is sent instantly via Telegram"
+  ]
+},
+{
+  id: "n2",
+  title: "n8n Demo — Dental Clinic Appointment Booking",
+  description: "Problem:\nPatients book dental appointments via an online form, but the clinic staff must manually check calendar availability, send confirmations, and remember to send reminders before each visit. When a slot is taken, staff scramble to find and suggest alternatives.\n\nImpact:\nDouble-bookings, missed reminders, no-shows, and a poor patient experience. Staff spend hours on scheduling tasks instead of patient care.\n\nAutomation Opportunity:\nAutomate the entire appointment lifecycle — from form submission to smart reminders and automatic alternative slot suggestions when conflicts arise.\n\nTools Used: n8n, Jotform, Google Calendar, Google Sheets, Gmail, Slack",
+  category: "n8n",
+  image: "/lovable-uploads/n8nDemo_2_Dental_Appointment.png",
+  problem: "Patients book dental appointments via an online form, but the clinic staff must manually check calendar availability, send confirmations, and remember to send reminders before each visit.",
+  impact: "Double-bookings, missed reminders, no-shows, and a poor patient experience. Staff spend hours on scheduling tasks instead of patient care.",
+  opportunity: "Automate the entire appointment lifecycle — from form submission to smart reminders and automatic alternative slot suggestions when conflicts arise.",
+  steps: [
+    "A patient fills out a Jotform booking form with their name, contact details, preferred appointment time, and reason for visit",
+    "A Code node parses and formats the form data into clean fields ready for use across all downstream nodes",
+    "Google Calendar checks if the requested time slot is available",
+    "If the slot is available, the workflow books the appointment by creating a Google Calendar event, saving patient info to Google Sheets, sending a confirmation email, and notifying the dental team via Slack",
+    "A Code node calculates how far away the appointment is and determines whether 24-hour and 2-hour reminders should be sent",
+    "If the appointment is more than 24 hours away, a reminder email is sent to the patient and the team is alerted on Slack the day before",
+    "If the appointment is more than 2 hours away, a second reminder email is sent and the team is alerted on Slack 2 hours before",
+    "If the slot is unavailable, the workflow fetches all existing events for the next 7 days, calculates the 5 earliest free slots during clinic hours, and emails the patient with alternative options"
+  ]
 }];
 
-const categories = ["All", "Zapier", "Make", "GoHighLevel"] as const;
+const categories = ["All", "Zapier", "Make", "GoHighLevel", "n8n"] as const;
 
 const PortfolioSection = () => {
   const [selected, setSelected] = useState<PortfolioItem | null>(null);
-  const [filter, setFilter] = useState<"All" | "Zapier" | "Make" | "GoHighLevel">("All");
+  const [filter, setFilter] = useState<"All" | "Zapier" | "Make" | "GoHighLevel" | "n8n">("All");
 
   useEffect(() => {
     if (selected) {

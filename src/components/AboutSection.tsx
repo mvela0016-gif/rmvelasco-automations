@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  "Zapier", "Make.com", "GoHighLevel", "Funnel Building", "Landing Pages",
+  "Zapier", "Make.com", "n8n", "GoHighLevel", "Funnel Building", "Landing Pages",
   "Lead Capture", "Appointment Scheduling", "Pipeline Management",
   "Google Docs & Sheets", "Data Entry", "Canva", "Calendar Scheduling",
 ];
@@ -29,7 +29,7 @@ const AboutSection = () => (
           My core mission is to help businesses regain control over their most valuable assets: time, resources, and money. I specialize in identifying operational bottlenecks and engineering robust automation systems that eliminate manual, repetitive work.
         </p>
         <p>
-          Using advanced tools like Zapier, Make.com, and GoHighLevel, I architect seamless workflows that connect your favorite apps, nurture leads on autopilot, and streamline your entire pipeline from capture to conversion. Whether it's multi-step automations, highly-converting funnels, or intelligent appointment scheduling systems, I ensure your business runs smoothly behind the scenes.
+          Using advanced tools like Zapier, Make.com, n8n, and GoHighLevel, I architect seamless workflows that connect your favorite apps, nurture leads on autopilot, and streamline your entire pipeline from capture to conversion. Whether it's multi-step automations, highly-converting funnels, or intelligent appointment scheduling systems, I ensure your business runs smoothly behind the scenes.
         </p>
         <p>
           By removing human error and automating the mundane, I empower business owners to focus entirely on scaling, innovating, and driving consistent revenue growth. Let's transform your operations into a well-oiled, efficient machine.

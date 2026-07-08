@@ -4,6 +4,7 @@ const tools = [
   { name: "Google Workspace", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" },
   { name: "Zapier", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/zapier.svg" },
   { name: "Make.com", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/make.svg" },
+  { name: "n8n", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/n8n.svg" },
   { name: "GoHighLevel" },
   { name: "Slack", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/slack.svg" },
   { name: "Airtable", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/airtable.svg" },
