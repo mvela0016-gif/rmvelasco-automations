@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, ZoomIn } from "lucide-react";
 import zapierDemo1 from "@/assets/zapier-demo-1.png";
 import fbLeadWorkflow from "@/assets/fb-lead-capture-workflow.png";
 import kajabiAutomation from "@/assets/kajabi-course-automation.png";
@@ -284,6 +284,27 @@ const portfolioItems: PortfolioItem[] = [
     "If the appointment is more than 2 hours away, a second reminder email is sent and the team is alerted on Slack 2 hours before",
     "If the slot is unavailable, the workflow fetches all existing events for the next 7 days, calculates the 5 earliest free slots during clinic hours, and emails the patient with alternative options"
   ]
+},
+{
+  id: "n3",
+  title: "n8n Demo 3 — Lead Nurturing Automation",
+  description: "Lead Nurturing Automation\n\nTools: n8n · Jotform · Gmail · Google Sheets · Slack\n\nA lead fills out a Jotform form with their name, contact details, business name, service interest, budget and timeline. A Code node parses the form data and automatically scores the lead based on their budget, timeline and service interest, giving each lead a score out of 8. The lead is saved to Google Sheets with a duplicate check to prevent the same lead from entering the sequence twice.\n\nBased on the score the lead is placed into one of three paths:\n• Hot lead (7–8 points) receives an immediate personal email and the team is alerted on Slack to follow up right away\n• Warm lead (4–6 points) enters a 4-email nurturing sequence over 7 days with follow-ups sent every 2–3 days\n• Cold lead (0–3 points) receives a single welcome email and is stored for future follow-up\n\nBefore every follow-up email the workflow checks Google Sheets to see if the lead has already replied and skips remaining emails if they have. A separate Gmail Trigger workflow watches for replies, automatically updates the lead status to \u201creplied\u201d in Google Sheets and sends an instant Slack notification to the team. If a warm lead completes the full sequence without responding, the team receives a final Slack alert to consider a personal follow-up call.\n\nKey Features:\n• Automatic lead scoring based on budget, timeline and service interest\n• Three separate paths for hot, warm and cold leads\n• Smart reply detection that stops the sequence the moment a lead responds\n• Duplicate lead prevention\n• Full audit trail with every lead logged and status tracked in Google Sheets",
+  category: "n8n",
+  image: "/lovable-uploads/n8n Demo 3 Lead Nurturing.png",
+  problem: "Leads come in from forms but sales teams manually score them, send follow-ups inconsistently, and have no system to detect replies or prevent duplicate outreach — resulting in missed opportunities and wasted effort.",
+  impact: "Hot leads go cold waiting for a response, warm leads receive no nurturing sequence, and the team has no visibility into which leads have already been contacted or replied.",
+  opportunity: "Automate the entire lead lifecycle — from scoring and segmented email sequences to reply detection and team alerts — so every lead gets the right follow-up at the right time without manual effort.",
+  steps: [
+    "A lead fills out a Jotform form with their name, contact details, business name, service interest, budget and timeline",
+    "A Code node parses the form data and scores the lead out of 8 based on budget, timeline and service interest",
+    "The lead is saved to Google Sheets with a duplicate check to prevent re-entry",
+    "Hot leads (7–8 points) receive an immediate personal email and the team is alerted on Slack",
+    "Warm leads (4–6 points) enter a 4-email nurturing sequence over 7 days with follow-ups every 2–3 days",
+    "Cold leads (0–3 points) receive a single welcome email and are stored for future follow-up",
+    "Before every follow-up the workflow checks Google Sheets for a reply and skips remaining emails if one is found",
+    "A separate Gmail Trigger workflow watches for replies, updates the lead status to replied in Google Sheets and sends a Slack notification",
+    "If a warm lead completes the full sequence without responding, the team receives a final Slack alert to consider a personal follow-up call"
+  ]
 }];
 
 const categories = ["All", "Zapier", "Make", "GoHighLevel", "n8n"] as const;
@@ -291,6 +312,7 @@ const categories = ["All", "Zapier", "Make", "GoHighLevel", "n8n"] as const;
 const PortfolioSection = () => {
   const [selected, setSelected] = useState<PortfolioItem | null>(null);
   const [filter, setFilter] = useState<"All" | "Zapier" | "Make" | "GoHighLevel" | "n8n">("All");
+  const [imageZoomed, setImageZoomed] = useState(false);
 
   useEffect(() => {
     if (selected) {
@@ -351,7 +373,7 @@ const PortfolioSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              onClick={() => setSelected(item)}
+              onClick={() => { setSelected(item); setImageZoomed(false); }}
               className="group text-left rounded-2xl overflow-hidden glass hover:translate-y-1 hover:shadow-none transition-all duration-200"
             >
               <div className="aspect-video bg-muted overflow-hidden rounded-t-2xl">
@@ -379,7 +401,7 @@ const PortfolioSection = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-foreground/60 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setSelected(null)}
+            onClick={() => { setSelected(null); setImageZoomed(false); }}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -390,17 +412,23 @@ const PortfolioSection = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                onClick={() => setSelected(null)}
+                onClick={() => { setSelected(null); setImageZoomed(false); }}
                 className="absolute top-3 right-3 z-10 p-2 rounded-full bg-secondary text-foreground hover:text-accent transition-colors"
               >
                 <X size={20} />
               </button>
-              <div className="bg-muted/50 flex items-center justify-center overflow-hidden rounded-tl-3xl rounded-bl-none md:rounded-bl-3xl rounded-tr-3xl md:rounded-tr-none">
+              <div
+                className="bg-muted/50 flex items-center justify-center overflow-hidden rounded-tl-3xl rounded-bl-none md:rounded-bl-3xl rounded-tr-3xl md:rounded-tr-none relative group/img cursor-zoom-in"
+                onClick={() => setImageZoomed(true)}
+              >
                 <img
                   src={selected.image}
                   alt={selected.title}
                   className="w-full h-full object-contain"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/30 transition-all duration-200 flex items-center justify-center">
+                  <ZoomIn className="text-white opacity-0 group-hover/img:opacity-100 transition-opacity duration-200" size={32} />
+                </div>
               </div>
               <div className="overflow-y-auto md:max-h-[90vh] p-6">
                 <span className="text-xs uppercase tracking-wider text-accent font-body font-medium">{selected.category}</span>
@@ -443,6 +471,36 @@ const PortfolioSection = () => {
                 )}
               </div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Fullscreen Image Zoom Overlay */}
+      <AnimatePresence>
+        {selected && imageZoomed && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out"
+            onClick={() => setImageZoomed(false)}
+          >
+            <motion.img
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              src={selected.image}
+              alt={selected.title}
+              className="max-w-[95vw] max-h-[95vh] object-contain rounded-xl shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={() => setImageZoomed(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            >
+              <X size={24} />
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
