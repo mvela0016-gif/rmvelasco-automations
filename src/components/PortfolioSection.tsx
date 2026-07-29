@@ -305,6 +305,43 @@ const portfolioItems: PortfolioItem[] = [
     "A separate Gmail Trigger workflow watches for replies, updates the lead status to replied in Google Sheets and sends a Slack notification",
     "If a warm lead completes the full sequence without responding, the team receives a final Slack alert to consider a personal follow-up call"
   ]
+},
+{
+  id: "n4",
+  title: "n8n Demo 4 — AI Customer Support",
+  description: "AI Customer Support Agent\n\nTools: n8n · Gmail · Groq AI · Slack · Google Sheets\n\nKey Features:\n• 24/7 automated responses with no human needed for common inquiries\n• Custom knowledge base covering services, pricing, turnaround times and FAQs\n• Smart escalation logic that routes complex or sensitive issues to a human\n• Full audit trail with every ticket logged to Google Sheets\n• Handles unlimited volume with no extra cost per email",
+  category: "n8n",
+  image: "/lovable-uploads/n8n Demo 4 AI Customer Support.png",
+  problem: "Customer support teams are overwhelmed with repetitive inquiries like order statuses and FAQs. Response time suffers and complex issues are delayed.",
+  impact: "Poor customer satisfaction, team burnout, and high operational costs for managing support volume.",
+  opportunity: "Implement an AI-powered customer support agent that reads emails, generates accurate responses using a custom knowledge base, and intelligently escalates complex issues to human agents.",
+  steps: [
+    "A Gmail Trigger watches for incoming customer emails and fires the workflow automatically when a new message arrives",
+    "A Code node extracts and cleans the email data including the sender name, email address, subject line and message body ready to pass to the AI",
+    "The cleaned email is sent to Groq AI powered by LLaMA 3.3 which reads the message and generates a professional reply based on a custom knowledge base",
+    "A Code node extracts the AI response and reads the escalation flag the AI includes at the end of every reply to determine whether the inquiry needs a human",
+    "If the AI is confident it can answer, the reply is sent automatically back to the customer via Gmail with no human involvement needed",
+    "If the inquiry is a complaint or too complex, the workflow skips the automated reply and sends an escalation alert to Slack",
+    "Every incoming email is logged to Google Sheets with the customer details, subject, response type and timestamp for full visibility and audit trail"
+  ]
+},
+{
+  id: "n5",
+  title: "n8n Demo 5 — Automatic Invoice Parser",
+  description: "AI Invoice Processing Automation\n\nTools: n8n · Google Drive · OCR Space · Groq AI · Google Sheets\n\nKey Features:\n• Fully automated from upload to logged record with zero manual data entry\n• OCR scanning works on any standard invoice PDF format\n• AI categorizes invoices automatically into Software, Marketing, Office Supplies, Services, Hardware or Other\n• Every invoice links back to the original PDF in Google Drive for easy auditing\n• Processes invoices instantly as soon as they land in the folder",
+  category: "n8n",
+  image: "/lovable-uploads/n8n Demo 5 Automatic Invoice Parser.png",
+  problem: "Accounts payable workflows require manual downloading of invoice PDFs, reading details, and typing them into tracking spreadsheets.",
+  impact: "Manual data entry is time-consuming, prone to human error, and creates bottlenecks in financial processing and auditing.",
+  opportunity: "Automate the entire extraction process using OCR and AI to intelligently parse invoice data from uploaded PDFs and instantly log structured records into a tracking system.",
+  steps: [
+    "A Google Drive Trigger watches a dedicated Invoices folder and fires the workflow automatically whenever a new invoice PDF is uploaded",
+    "The PDF is downloaded from Google Drive and sent to OCR Space which scans the document and extracts all the raw text content",
+    "The extracted text is passed to Groq AI powered by LLaMA 3.3 along with a structured extraction prompt to pull out key invoice fields",
+    "A Structured Output Parser ensures the AI response is always returned in a consistent JSON format with the exact fields needed for logging",
+    "A Code node maps the parsed data and generates a direct Google Drive link to the original invoice PDF for easy reference",
+    "All extracted invoice data is automatically logged to a Google Sheets audit trail including vendor name, total amount, taxes, category, and file link"
+  ]
 }];
 
 const categories = ["All", "Zapier", "Make", "GoHighLevel", "n8n"] as const;
